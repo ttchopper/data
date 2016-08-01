@@ -32,21 +32,16 @@ var tag = new Schema({
 
 
 var completedProject = new Schema({
-    Users: {
-        type: [user]
-    },
 
-    Technologies: {
-        type: [technology]
-    },
+    Users: [user],
+
+    Technologies: [technology],
 
     Name: String,
 
     Description: String,
 
-    ScreenShots: {
-        type: [screenshot]
-    },
+    ScreenShots: [screenshot],
 
     TimeBegin: {
         time: Date,
@@ -60,9 +55,7 @@ var completedProject = new Schema({
         required: true
     },
 
-    Tags: {
-        type: [tags]
-    },
+    Tags: [tag],
 
     Stage: {
         completed: Boolean,
@@ -72,21 +65,16 @@ var completedProject = new Schema({
 
 
 var requestedObject = new Schema({
-    Users: {
-        type: [user]
-    },
 
-    Technologies: {
-        type: [technology]
-    },
+    Users: [user],
+
+    Technologies: [technology],
 
     Name: String,
 
     Description: String,
 
-    ScreenShots: {
-        type: [screenshot]
-    },
+    ScreenShots: [screenshot],
 
     TimeBegin: {
         time: Date,
@@ -100,9 +88,7 @@ var requestedObject = new Schema({
         required: true
     },
 
-    Tags: {
-        type: [tags]
-    },
+    Tags: [tag],
 
     Stage: {
         In_Progress: Boolean,
