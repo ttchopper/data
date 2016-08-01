@@ -6,7 +6,7 @@ var mainProject = new Schema({
     }],
 
     Techologies: [{
-        name: {type: String, require: true},
+        name: {type: String, required: true},
         id: ObjectId,
         required: true
     }],
@@ -42,7 +42,7 @@ var reqProject = new Schema({
     Tags: String,
 
     Techologies: [{
-        name: {type: String, require: true},
+        name: {type: String, required: true},
         id: ObjectId,
         required: true
     }],
