@@ -1,61 +1,120 @@
-var mainProject = new Schema({
-    Users: [{
-        id: Schema.User.ObjectId, 
-        name: String,
-        required: true
-    }],
+var mongoose = require('mongoose');
 
-    Techologies: [{
-        name: {type: String, required: true},
-        id: ObjectId,
-        required: true
-    }],
+var Schema = mongoose.Schema;
 
-    Name: {
-        type: String,
-        required: true    
+var ObjectId = mongoose.Schema.Types.ObjectId;
+
+
+
+var user = new Schema({
+    _id: ObjectId,
+    name: { type: String, required: true },
+    avatar: Buffer,
+    required: true
+});
+
+var technology = new Schema({
+    name: { type: String, required: true },
+    image: { type: Buffer },
+    required: true
+});
+
+var sreenshot = new Schema({
+    _id: ObjectId,
+    type: Buffer
+});
+
+var tag = new Schema({
+    _id: ObejctId,
+    type: String
+});
+
+
+
+var completedProject = new Schema({
+    Users: {
+        type: [user]
     },
+
+    Technologies: {
+        type: [technology]
+    },
+
+    Name: String,
 
     Description: String,
 
     ScreenShots: {
-        id: ObjectId,
-        type: Buffer
+        type: [screenshot]
     },
 
-    TimeBegin: Date,
+    TimeBegin: {
+        time: Date,
+        date: { type: Date, required: true },
+        required: true
+    },
 
-    TimeEnd: Date,
+    TimeBegin: {
+        time: Date,
+        date: { type: Date, required: true },
+        required: true
+    },
 
-    Tags: [{String}],
+    Tags: {
+        type: [tags]
+    },
 
     Stage: {
-        type: Boolean
-        image: {type: Buffer, id: ObjectId}
+        completed: Boolean,
+        image: Buffer
     }
-
 });
 
-var reqProject = new Schema({
-    Name: String,
-    Description: String,
-    Tags: String,
 
-    Techologies: [{
-        name: {type: String, required: true},
-        id: ObjectId,
-        required: true
-    }],
-
-
-    ScreenShots: {
-        id: ObjectId,
-        type: Buffer
+var requestedObject = new Schema({
+    Users: {
+        type: [user]
     },
 
-    Stage: [{
-        in_progress: Boolean,
+    Technologies: {
+        type: [technology]
+    },
+
+    Name: String,
+
+    Description: String,
+
+    ScreenShots: {
+        type: [screenshot]
+    },
+
+    TimeBegin: {
+        time: Date,
+        date: { type: Date, required: true },
+        required: true
+    },
+
+    TimeBegin: {
+        time: Date,
+        date: { type: Date, required: true },
+        required: true
+    },
+
+    Tags: {
+        type: [tags]
+    },
+
+    Stage: {
+        In_Progress: Boolean,
         Estimated: Boolean,
         Discussed: Boolean
-    }]
+    }
 });
+
+
+
+
+
+
+
+
